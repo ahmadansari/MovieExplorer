@@ -43,7 +43,7 @@ enum Keys {
     
     // MARK: - Service Parameter Keys
     static let page                 = "page"
-    static let api_key              = "api_key"
+    static let apiKey              = "api_key"
     static let query                = "query"
 }
 
