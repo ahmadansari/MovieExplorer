@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //App Settings
         configureAppSettings()
+        
+        //Launch Controller
+        let viewController = MoviesModuleBuilder().build()
+        self.window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
 
         return true
     }
@@ -50,14 +55,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func configureAppSettings() {
-        //Status Bar Style
-        UIApplication.shared.statusBarStyle = .lightContent
+        //Navigation Bar Appearence
+        setNavigationBarAppearance()
         
         //Log Configuration
         Utility.defaultUtility.configureSwiftLogger()
         
-        //ProgressHud Configuration
+        //ProgressHUD Configuration
         ProgressHUD.configureAppearance()
     }
     
+    func setNavigationBarAppearance() {
+        let navBarBG = UIImage.init(named: "navBar")?.withRenderingMode(.alwaysOriginal).resizableImage(withCapInsets: .zero, resizingMode: .stretch)
+        UINavigationBar.appearance().setBackgroundImage(navBarBG, for: .default)
+        
+        let navTintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: navTintColor, NSAttributedString.Key.font: UIFont.init(name: "Rockout", size: 32.0) ?? UIFont.boldSystemFont(ofSize: 17)]
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationController.self, UINavigationBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: navTintColor], for: .normal)
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = navTintColor
+        UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = navTintColor
+        UIButton.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleColor(navTintColor, for: .normal)
+    }
 }
