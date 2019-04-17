@@ -19,8 +19,8 @@ class MoviesModuleCoordinator {
 
 extension MoviesModuleCoordinator {
     
-//    func showDetailPage(imageDTO: GiphyImageDTO) {
-//        let detailController = DetailModuleBuilder().build(imageDTO: imageDTO)
-//        navigationController?.pushViewController(detailController, animated: true)
-//    }
+    func showMovieDetail(movieDTO: MovieDTO) {
+        let detailController = MovieDetailModuleBuilder().build(movieDTO: movieDTO)
+        navigationController?.pushViewController(detailController, animated: true)
+    }
 }

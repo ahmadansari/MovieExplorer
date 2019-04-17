@@ -75,6 +75,7 @@ class MoviesViewController: UIViewController {
         tableView.rx.itemSelected
             .asDriver()
             .drive(onNext: { [weak self] (indexPath) in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.viewModel.didSelectItem.onNext(indexPath)
             }).disposed(by: disposeBag)
         
