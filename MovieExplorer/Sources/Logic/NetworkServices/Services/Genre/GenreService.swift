@@ -44,5 +44,4 @@ final class GenreService: Service, GenreServiceProtocol {
             }
         }
     }
-
 }
