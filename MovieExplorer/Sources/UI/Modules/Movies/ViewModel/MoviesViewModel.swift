@@ -14,7 +14,7 @@ typealias VoidBlock = () -> Void
 
 class MoviesViewModel {
  
-    fileprivate var managedObjectContext: NSManagedObjectContext!
+    private var managedObjectContext: NSManagedObjectContext!
     var moviesFRC: RXFetchedResultsController!
     
     let moduleCoordinator: MoviesModuleCoordinator?
@@ -29,11 +29,20 @@ class MoviesViewModel {
     
     //Model Input
     var didSelectItem = BehaviorSubject<IndexPath?>(value: nil)
+    private let disposeBag = DisposeBag()
     
     init(coordinator: MoviesModuleCoordinator, handler: MovieHandler) {
         moduleCoordinator = coordinator
         movieHandler = handler
         configure()
+        
+        //Subscribe Model Input
+        didSelectItem.subscribe(onNext: { [weak self] (indexPath) in
+            guard indexPath != nil else {
+                return
+            }
+            self?.didSelectItem(atIndexPath: indexPath!)
+        }).disposed(by: disposeBag)
     }
     
     private func configure() {
@@ -65,6 +74,15 @@ extension MoviesViewModel {
             self?.moviesFRC.performFetch(completion: { _ in
                 self?.moviesLoaded.onNext(())
             })
+        }
+    }
+}
+
+//Navigation
+extension MoviesViewModel {
+    func didSelectItem(atIndexPath indexPath: IndexPath) {
+        if let movieDTO = moviesFRC.object(at: indexPath) as? MovieDTO {
+            moduleCoordinator?.showMovieDetail(movieDTO: movieDTO)
         }
     }
 }
