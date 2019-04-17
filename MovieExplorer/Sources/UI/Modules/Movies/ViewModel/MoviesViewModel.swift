@@ -58,14 +58,21 @@ class MoviesViewModel {
 extension MoviesViewModel {
     func loadViewData(completion: @escaping VoidBlock) {
         showProgress.onNext(())
-        movieHandler?.fetchLatestMovies(page, { [weak self] (response, error) in
-            if error != nil {
-                print("Error: \(String(describing: error))")
-            } else {
-                self?.page = response?.page ?? PageInfo.defaultPage
+        MovieHandler.shared.fetchGenreList { [weak self] (response, error) in
+            guard error == nil else {
+                completion()
+                return
             }
-            completion()
-        })
+            let currentPage = self?.page ?? PageInfo.defaultPage
+            self?.movieHandler?.fetchLatestMovies(currentPage, { (response, error) in
+                if error != nil {
+                    print("Error: \(String(describing: error))")
+                } else {
+                    self?.page = response?.page ?? PageInfo.defaultPage
+                }
+                completion()
+            })
+        }
     }
     
     func loadNextPage() {
