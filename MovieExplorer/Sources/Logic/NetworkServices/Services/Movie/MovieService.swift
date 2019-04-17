@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Movie Service Protocol
 protocol MovieServiceProtocol: class {
-    
+    func latestMovies(page: Int, completionHandler: @escaping ServiceResponseHandler<MovieServiceResponse>)
 }
 
 // MARK: - Movie Service
@@ -18,16 +18,13 @@ final class MovieService: Service, MovieServiceProtocol {
     
     init() {
         super.init(baseURL: API.baseURL,
-                   servicePath: ServicePath.discoverMovies)
+                   servicePath: ServicePath.nowPlaying)
     }
     
     func latestMovies(page: Int, completionHandler: @escaping ServiceResponseHandler<MovieServiceResponse>) {
         
-        let parameters: [String: Any] = ["sort_by": "primary_release_date.desc",
-                                         "primary_release_date.lte": "2019-04-30",
-                                         Keys.page: page,
-                                         Keys.apiKey: API.apiKey
-        ]
+        let parameters: [String: Any] = [Keys.page: page,
+                                         Keys.apiKey: API.apiKey]
         
         self.peformRequest(parameters: parameters) { (response) in
             if (response == nil || response?.error != nil) {

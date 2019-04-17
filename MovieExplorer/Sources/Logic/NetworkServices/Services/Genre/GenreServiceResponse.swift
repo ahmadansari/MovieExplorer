@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct GenreListResponse: Codable {
+struct GenreServiceResponse: Codable {
     let genereList: [GenreData]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case genereList = "genres"
+    }
 }
 
 struct GenreData: Codable {
-    let id: String?
+    let id: Int64
     let name: String?
 }

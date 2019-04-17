@@ -10,8 +10,8 @@ import Foundation
 
 struct MovieServiceResponse: Codable {
     let page: Int32?
-    let totalResults: Int32?
-    let totalPages: Int32?
+    let totalResults: Int64?
+    let totalPages: Int64?
     let movies: [MovieData]?
     
     private enum CodingKeys: String, CodingKey {
@@ -24,12 +24,12 @@ struct MovieServiceResponse: Codable {
 
 struct MovieData: Codable {
     
-    let id: Int64?
+    let id: Int64
     let title: String?
-    let voteCount: Int32?
+    let voteCount: Int64?
     let video: Bool?
-    let voteAverage: Float?
-    let popularity: Float?
+    let voteAverage: Double?
+    let popularity: Double?
     let posterPath: String?
     let originalLanguage: String?
     let originalTitle: String?
