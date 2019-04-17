@@ -25,6 +25,6 @@ enum Keys {
     static let apiKey              = "api_key"
 }
 
-struct PageInfo {
-    
+enum PageInfo {
+    static let defaultPage = 1
 }

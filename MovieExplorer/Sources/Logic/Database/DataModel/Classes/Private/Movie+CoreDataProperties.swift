@@ -24,6 +24,7 @@ extension Movie {
     @NSManaged public var popularity: Double
     @NSManaged public var posterPath: String?
     @NSManaged public var releaseDate: NSDate?
+    @NSManaged public var cachedDate: NSDate?    
     @NSManaged public var title: String?
     @NSManaged public var video: Bool
     @NSManaged public var voteAverage: Double
