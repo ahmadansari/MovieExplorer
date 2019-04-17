@@ -14,37 +14,15 @@ enum API {
 }
 
 enum ServicePath {
-    static let discoverMovies       = "/discover/movie"
+    static let nowPlaying           = "/movie/now_playing"
     static let genreList            = "/genre/movie/list"
     static let movieThumbnailPath   = "http://image.tmdb.org/t/p/w%d/"
 }
 
 enum Keys {
-    // MARK: - API Keys
-    static let total_results        = "total_results"
-    static let total_pages          = "total_pages"
-    static let results              = "results"
-    static let vote_count           = "vote_count"
-    static let id                   = "id"
-    static let video                = "video"
-    static let vote_average         = "vote_average"
-    static let title                = "title"
-    static let popularity           = "popularity"
-    static let poster_path          = "poster_path"
-    static let original_language    = "original_language"
-    static let original_title       = "original_title"
-    static let genre_ids            = "genre_ids"
-    static let backdrop_path        = "backdrop_path"
-    static let adult                = "adult"
-    static let overview             = "overview"
-    static let release_date         = "release_date"
-    static let name                 = "name"
-    static let genres               = "genres"
-    
     // MARK: - Service Parameter Keys
     static let page                 = "page"
     static let apiKey              = "api_key"
-    static let query                = "query"
 }
 
 struct PageInfo {

@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Genre Service Protocol
 protocol GenreServiceProtocol: class {
-    func genreList(completionHandler: @escaping ServiceResponseHandler<GenreListResponse>)
+    func genreList(completionHandler: @escaping ServiceResponseHandler<GenreServiceResponse>)
 }
 
 // MARK: - Genre Service
@@ -21,7 +21,7 @@ final class GenreService: Service, GenreServiceProtocol {
                    servicePath: ServicePath.genreList)
     }
     
-    func genreList(completionHandler: @escaping ServiceResponseHandler<GenreListResponse>) {
+    func genreList(completionHandler: @escaping ServiceResponseHandler<GenreServiceResponse>) {
         
         let parameters: [String: Any] = [Keys.apiKey: API.apiKey]
         
@@ -33,7 +33,7 @@ final class GenreService: Service, GenreServiceProtocol {
             } else {
                 if let json: Any = response?.value {
                     do {
-                        let genreResponse: GenreListResponse = try self.translation.decode(object: json)
+                        let genreResponse: GenreServiceResponse = try self.translation.decode(object: json)
                         completionHandler(genreResponse, nil)
                     } catch {
                         completionHandler(nil, error)
