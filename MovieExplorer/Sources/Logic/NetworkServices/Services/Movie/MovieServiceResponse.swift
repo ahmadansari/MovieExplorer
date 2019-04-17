@@ -9,7 +9,7 @@
 import Foundation
 
 struct MovieServiceResponse: Codable {
-    let page: Int32?
+    let page: Int?
     let totalResults: Int64?
     let totalPages: Int64?
     let movies: [MovieData]?

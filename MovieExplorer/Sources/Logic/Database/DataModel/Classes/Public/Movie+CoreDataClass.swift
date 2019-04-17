@@ -76,6 +76,7 @@ extension Movie {
                 movie?.adult = movieData.adult ?? false
                 movie?.overview = movieData.overview
                 movie?.releaseDate = convertToDate(movieData.releaseDate)
+                movie?.cachedDate = Date() as NSDate
                 
                 if let genreIds = movieData.genreIds, genreIds.count > 0 {
                     let genreRequest: NSFetchRequest = Genre.fetchRequest()
