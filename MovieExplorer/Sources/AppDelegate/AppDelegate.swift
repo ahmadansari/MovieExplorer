@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        //App Settings
+        configureAppSettings()
+
         return true
     }
 
@@ -40,4 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+// MARK: - App Configurations
+extension AppDelegate {
+    
+    func configureAppSettings() {
+        //Status Bar Style
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        //Log Configuration
+        Utility.defaultUtility.configureSwiftLogger()
+        
+        //ProgressHud Configuration
+        ProgressHUD.configureAppearance()
+    }
+    
 }
