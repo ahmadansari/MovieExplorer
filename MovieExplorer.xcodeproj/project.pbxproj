@@ -17,6 +17,8 @@
 		314DBEC722673855003D9BB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 314DBEC622673855003D9BB7 /* .swiftlint.yml */; };
 		314DBECA22673D18003D9BB7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314DBEC922673D18003D9BB7 /* UIImage+Extension.swift */; };
 		314DBED722673E64003D9BB7 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314DBED622673E64003D9BB7 /* ProgressHUD.swift */; };
+		314DBEDB22673EB0003D9BB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314DBED922673EB0003D9BB7 /* Constants.swift */; };
+		314DBEDC22673EB0003D9BB7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314DBEDA22673EB0003D9BB7 /* Utility.swift */; };
 		7D51DD1F6912DA0EDB113849 /* Pods_MovieExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13B9BF06D1653DBB24DC504 /* Pods_MovieExplorer.framework */; };
 		A3EC76B187BADD63CD5E81E6 /* Pods_MovieExplorerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C627F23219145AEE22A209F /* Pods_MovieExplorerTests.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		314DBEC622673855003D9BB7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		314DBEC922673D18003D9BB7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		314DBED622673E64003D9BB7 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		314DBED922673EB0003D9BB7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		314DBEDA22673EB0003D9BB7 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		804D7559862CEBC640BEC346 /* Pods-MovieExplorerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieExplorerTests.release.xcconfig"; path = "Target Support Files/Pods-MovieExplorerTests/Pods-MovieExplorerTests.release.xcconfig"; sourceTree = "<group>"; };
 		886F4AB9865743521EB56EED /* Pods-MovieExplorerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieExplorerTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieExplorerTests/Pods-MovieExplorerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D13B9BF06D1653DBB24DC504 /* Pods_MovieExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,7 @@
 		314DBEB922673624003D9BB7 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				314DBED822673EB0003D9BB7 /* Utility */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -206,6 +211,15 @@
 				314DBED622673E64003D9BB7 /* ProgressHUD.swift */,
 			);
 			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		314DBED822673EB0003D9BB7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				314DBED922673EB0003D9BB7 /* Constants.swift */,
+				314DBEDA22673EB0003D9BB7 /* Utility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		566BD6735DFC47610CFAD8A0 /* Pods */ = {
@@ -434,7 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314DBEDB22673EB0003D9BB7 /* Constants.swift in Sources */,
 				314DBECA22673D18003D9BB7 /* UIImage+Extension.swift in Sources */,
+				314DBEDC22673EB0003D9BB7 /* Utility.swift in Sources */,
 				314DBEC222673624003D9BB7 /* AppDelegate.swift in Sources */,
 				314DBED722673E64003D9BB7 /* ProgressHUD.swift in Sources */,
 				314DBEC122673624003D9BB7 /* ViewController.swift in Sources */,
