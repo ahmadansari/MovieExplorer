@@ -15,4 +15,13 @@ struct Constants {
     
     // MARK: - Database Constants
     static let XCDataModelFile      = "MovieDB"
+    
+    // MARK: - Service Constants
+    static let defaultPageSize      = 20
+    static let defaultPosterSize    = 92
+    static let defaultBackdropSize  = 500
+    static let releaseDateFormat    = "yyyy-MM-dd"
+    
+    // MARK: - UI Constants
+    static let dateDisplayFormat    = "dd MMMM yyyy"
 }
