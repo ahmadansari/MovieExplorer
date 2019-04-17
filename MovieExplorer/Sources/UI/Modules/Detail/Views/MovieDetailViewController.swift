@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MovieDetailViewController: UIViewController {
     
@@ -21,6 +23,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var backdropHeightConstraint: NSLayoutConstraint!
     
+    private let disposeBag = DisposeBag()
+    
     //Movie Detail Presenter
     var viewModel: MovieDetailViewModel!
     
@@ -28,22 +32,38 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        setupUI()
+        bindViewModel()
+        viewModel.loadViewData()
+    }
+    
+    func setupUI() {
         self.updateInterfaceOnOrientationChange()
-        self.populateMovieData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //self.navigationController?.isNavigationBarHidden = true
+    func bindViewModel() {
+        
+        viewModel.title.bind(to: titleLabel.rx.text).disposed(by: disposeBag)
+        viewModel.genreList.bind(to: genreLabel.rx.text).disposed(by: disposeBag)
+        viewModel.releaseDate.bind(to: releaseDateLabel.rx.text).disposed(by: disposeBag)
+        viewModel.movieLanguage.bind(to: languageLabel.rx.text).disposed(by: disposeBag)
+        viewModel.movieRatings.bind(to: ratingLabel.rx.text).disposed(by: disposeBag)
+        viewModel.movieOverview.bind(to: storyTextView.rx.text).disposed(by: disposeBag)
+        
+        viewModel.posterLoaded.asDriver(onErrorJustReturn: nil)
+            .drive(onNext: { [weak self] (url) in
+                self?.posterImageView.kf.setImage(with: url, placeholder: UIImage.placeholderImage)
+            }).disposed(by: disposeBag)
+        
+        viewModel.backdropLoaded.asDriver(onErrorJustReturn: nil)
+            .drive(onNext: { [weak self] (url) in
+                self?.backdropImageView.kf.setImage(with: url, placeholder: UIImage.placeholderImage)
+            }).disposed(by: disposeBag)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - View Tranistion
+}
+
+// MARK: - View Tranistion
+extension MovieDetailViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -60,21 +80,4 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    func populateMovieData() {
-        
-        guard let movieDTO = self.viewModel.movieDTO else { return }
-        
-        self.titleLabel?.text = movieDTO.movieTitle()
-        self.genreLabel.text = movieDTO.genreList()
-        self.releaseDateLabel.text = movieDTO.releaseDate()
-        self.languageLabel.text = movieDTO.movieLanguage()
-        self.ratingLabel.text = movieDTO.movieRatings()
-        self.storyTextView.text = movieDTO.movieOverview()
-        self.titleLabel.sizeToFit()
-        self.genreLabel.sizeToFit()
-        
-        posterImageView.kf.setImage(with: movieDTO.posterURL(), placeholder: UIImage.placeholderImage)
-        
-        backdropImageView.kf.setImage(with: movieDTO.backdropURL(), placeholder: UIImage.placeholderImage)        
-    }
 }
