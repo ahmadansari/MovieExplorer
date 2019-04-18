@@ -27,24 +27,69 @@
                                     <outlet property="delegate" destination="haW-54-1OT" id="8QW-2h-Ghg"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-j7-vpX" customClass="DatePickerView" customModule="MovieExplorer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="602" width="414" height="260"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RF9-Sm-cfO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Cancel" id="hf4-JS-DxC">
+                                                <connections>
+                                                    <action selector="onTapCancelButton:" destination="AXd-j7-vpX" id="AbN-hP-yVf"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="nDk-11-pWb"/>
+                                            <barButtonItem title="Done" style="done" id="YHV-np-sg9">
+                                                <connections>
+                                                    <action selector="onTapDoneButton:" destination="AXd-j7-vpX" id="AKf-Ow-rMc"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VHJ-5T-X1F">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="577270783.68845105">
+                                            <!--2019-04-18 08:59:43 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="VHJ-5T-X1F" secondAttribute="bottom" id="27E-cL-tJ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="RF9-Sm-cfO" secondAttribute="trailing" id="EAV-As-OPT"/>
+                                    <constraint firstItem="RF9-Sm-cfO" firstAttribute="leading" secondItem="AXd-j7-vpX" secondAttribute="leading" id="Rc0-5v-eJ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="VHJ-5T-X1F" secondAttribute="trailing" id="bHK-sK-5AZ"/>
+                                    <constraint firstAttribute="height" constant="260" id="jV0-st-cI2"/>
+                                    <constraint firstItem="VHJ-5T-X1F" firstAttribute="top" secondItem="RF9-Sm-cfO" secondAttribute="bottom" id="lJ4-xT-hHj"/>
+                                    <constraint firstItem="RF9-Sm-cfO" firstAttribute="top" secondItem="AXd-j7-vpX" secondAttribute="top" id="nCX-4K-hVV"/>
+                                    <constraint firstItem="VHJ-5T-X1F" firstAttribute="leading" secondItem="AXd-j7-vpX" secondAttribute="leading" id="yEj-sC-qRh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="datePicker" destination="VHJ-5T-X1F" id="nJX-0N-7H6"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="top" secondItem="ht6-F5-7SR" secondAttribute="top" id="07T-HJ-nWr"/>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="leading" secondItem="ht6-F5-7SR" secondAttribute="leading" id="6ft-NT-gjC"/>
+                            <constraint firstItem="AXd-j7-vpX" firstAttribute="trailing" secondItem="ht6-F5-7SR" secondAttribute="trailing" id="EX7-Uz-9UE"/>
+                            <constraint firstItem="AXd-j7-vpX" firstAttribute="leading" secondItem="ht6-F5-7SR" secondAttribute="leading" id="NnJ-I4-EaK"/>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="trailing" secondItem="ht6-F5-7SR" secondAttribute="trailing" id="XYQ-jb-3O4"/>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="bottom" secondItem="ht6-F5-7SR" secondAttribute="bottom" id="php-Uz-LwE"/>
+                            <constraint firstItem="ht6-F5-7SR" firstAttribute="bottom" secondItem="AXd-j7-vpX" secondAttribute="bottom" id="wZN-2w-sYJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ht6-F5-7SR"/>
                     </view>
                     <navigationItem key="navigationItem" id="YxX-p2-CXP"/>
                     <connections>
+                        <outlet property="datePickerView" destination="AXd-j7-vpX" id="QSO-4B-v2J"/>
                         <outlet property="tableView" destination="JOM-20-gqw" id="Yvm-dD-aWZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1L-dY-fco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="21"/>
+            <point key="canvasLocation" x="718.84057971014499" y="20.758928571428569"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="Rxm-by-Kzg">

@@ -40,15 +40,6 @@ extension Movie {
                 return
             }
             
-            //Date Type
-            let convertToDate: ((String?) -> NSDate?) = { dateString in
-                guard let dateString = dateString else { return nil }
-                let formatter = DateFormatter()
-                formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-                formatter.dateFormat = Constants.releaseDateFormat
-                return formatter.date(from: dateString) as NSDate?
-            }
-            
             for movieData in movies {
                 
                 let id = movieData.id
@@ -75,7 +66,7 @@ extension Movie {
                 movie?.backdropPath = movieData.backdropPath
                 movie?.adult = movieData.adult ?? false
                 movie?.overview = movieData.overview
-                movie?.releaseDate = convertToDate(movieData.releaseDate)
+                movie?.releaseDate = movieData.releaseDate
                 movie?.cachedDate = Date() as NSDate
                 
                 if let genreIds = movieData.genreIds, genreIds.count > 0 {

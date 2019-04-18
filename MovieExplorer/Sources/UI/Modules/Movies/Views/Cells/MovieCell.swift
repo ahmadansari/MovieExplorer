@@ -26,7 +26,7 @@ class MovieCell: UITableViewCell {
     func configure(movieDTO: MovieDTO) {
         titleLabel?.text = movieDTO.movieTitle()
         descriptionLabel.text = movieDTO.movieOverview()
-        releaseDateLabel.text = movieDTO.releaseDate()
+        releaseDateLabel.text = movieDTO.displayDate()
         titleLabel.sizeToFit()
         descriptionLabel.sizeToFit()        
         posterView.kf.setImage(with: movieDTO.posterURL(), placeholder: UIImage.placeholderImage)

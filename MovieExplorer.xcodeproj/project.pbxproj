@@ -48,6 +48,7 @@
 		314DBF2D226797C4003D9BB7 /* Rockout.otf in Resources */ = {isa = PBXBuildFile; fileRef = 314DBF2B226797C4003D9BB7 /* Rockout.otf */; };
 		314DBF2E226797C4003D9BB7 /* Showtime.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 314DBF2C226797C4003D9BB7 /* Showtime.ttf */; };
 		314DBF302267A0DA003D9BB7 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314DBF2F2267A0DA003D9BB7 /* Date+Extensions.swift */; };
+		31E6B29B2268773000965FF8 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6B29A2268773000965FF8 /* DatePickerView.swift */; };
 		7D51DD1F6912DA0EDB113849 /* Pods_MovieExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13B9BF06D1653DBB24DC504 /* Pods_MovieExplorer.framework */; };
 		A3EC76B187BADD63CD5E81E6 /* Pods_MovieExplorerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C627F23219145AEE22A209F /* Pods_MovieExplorerTests.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		314DBF2B226797C4003D9BB7 /* Rockout.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rockout.otf; sourceTree = "<group>"; };
 		314DBF2C226797C4003D9BB7 /* Showtime.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Showtime.ttf; sourceTree = "<group>"; };
 		314DBF2F2267A0DA003D9BB7 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		31E6B29A2268773000965FF8 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		804D7559862CEBC640BEC346 /* Pods-MovieExplorerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieExplorerTests.release.xcconfig"; path = "Target Support Files/Pods-MovieExplorerTests/Pods-MovieExplorerTests.release.xcconfig"; sourceTree = "<group>"; };
 		886F4AB9865743521EB56EED /* Pods-MovieExplorerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieExplorerTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieExplorerTests/Pods-MovieExplorerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D13B9BF06D1653DBB24DC504 /* Pods_MovieExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -487,6 +489,7 @@
 			children = (
 				314DBF1B22678707003D9BB7 /* Cells */,
 				314DBF13226786C9003D9BB7 /* MoviesViewController.swift */,
+				31E6B29A2268773000965FF8 /* DatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				314DBEDB22673EB0003D9BB7 /* Constants.swift in Sources */,
 				314DBF0C22676D86003D9BB7 /* GenreDTO.swift in Sources */,
 				314DBF0F226773DF003D9BB7 /* MovieHandler.swift in Sources */,
+				31E6B29B2268773000965FF8 /* DatePickerView.swift in Sources */,
 				314DBEE1226740B8003D9BB7 /* Service.swift in Sources */,
 				314DBF18226786EB003D9BB7 /* MovieDetailViewController.swift in Sources */,
 				314DBEFF22676B46003D9BB7 /* MovieDB.xcdatamodeld in Sources */,

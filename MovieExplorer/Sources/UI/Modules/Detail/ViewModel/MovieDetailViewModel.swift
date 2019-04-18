@@ -36,7 +36,7 @@ extension MovieDetailViewModel {
     func loadViewData() {
         title.onNext(movieDTO?.movieTitle())
         genreList.onNext(movieDTO?.genreList())
-        releaseDate.onNext(movieDTO?.releaseDate())
+        releaseDate.onNext(movieDTO?.displayDate())
         movieLanguage.onNext(movieDTO?.movieLanguage())
         movieRatings.onNext(movieDTO?.movieRatings())
         movieOverview.onNext(movieDTO?.movieOverview())
