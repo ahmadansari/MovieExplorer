@@ -15,6 +15,7 @@ class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var pickerConstraint: NSLayoutConstraint!
     var viewModel: MoviesViewModel!
     
     private let disposeBag = DisposeBag()
@@ -142,12 +143,18 @@ extension MoviesViewController: DatePickerViewDelegate {
     }
     
     func showDatePicker() {
-        datePickerView.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.pickerConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        })
         updateTitle()
     }
     
     func hideDatePicker() {
-        datePickerView.isHidden = true
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.pickerConstraint.constant = -260
+            self.view.layoutIfNeeded()
+        })
         updateTitle()
     }
     
