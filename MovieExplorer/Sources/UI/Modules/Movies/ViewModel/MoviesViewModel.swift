@@ -45,7 +45,7 @@ class MoviesViewModel {
         }).disposed(by: disposeBag)
     }
     
-    private func configure() {
+    func configure() {
         managedObjectContext = CoreDataStack.defaultStack.mainContext
         let dateDescriptor = NSSortDescriptor(key: "cachedDate", ascending: true)
         moviesFRC = RXFetchedResultsController(context: managedObjectContext,
