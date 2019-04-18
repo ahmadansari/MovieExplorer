@@ -85,4 +85,16 @@ extension Movie {
             })
         }
     }
+    
+    class func movie(withId movieId: Int64, context: NSManagedObjectContext) -> Movie? {
+        var movie: Movie?
+        context.performAndWait {
+            let request: NSFetchRequest = Movie.fetchRequest()
+            request.predicate = NSPredicate.init(format: "SELF.id == %ld", movieId)
+            if let filteredResults = try? context.fetch(request) {
+                movie = filteredResults.first
+            }
+        }
+        return movie
+    }
 }

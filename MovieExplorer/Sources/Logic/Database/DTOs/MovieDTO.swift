@@ -12,7 +12,7 @@ class MovieDTO: NSObject {
     
     private weak var movie: Movie?
     
-    init(movie: Movie) {
+    init(movie: Movie? = nil) {
         super.init()
         self.movie = movie
     }
