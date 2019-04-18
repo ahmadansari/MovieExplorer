@@ -67,10 +67,10 @@ Code has been strucutred into three main categories, Sources, Resources and Supp
 
 
 ## Sample Screens
-![Movies]<img src="Screenshots/Movies.png" width="320" height="690">
-![Detail]<img src="Screenshots/Detail.png" width="320" height="690">
+[Movies]<img src="Screenshots/Movies.png" width="320" height="560">
+[Detail]<img src="Screenshots/Detail.png" width="320" height="560">
 
-See Application Video here:  [AppPreview.mp4](Screenshots/AppPreview.mp4)
+* **See Application Video here:**  [AppPreview.mp4](Screenshots/AppPreview.mp4)
 
 
 ## Built With
