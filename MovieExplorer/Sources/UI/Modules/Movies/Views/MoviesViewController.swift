@@ -152,7 +152,7 @@ extension MoviesViewController: DatePickerViewDelegate {
     
     func hideDatePicker() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-            self.pickerConstraint.constant = -260
+            self.pickerConstraint.constant = -300
             self.view.layoutIfNeeded()
         })
         updateTitle()
