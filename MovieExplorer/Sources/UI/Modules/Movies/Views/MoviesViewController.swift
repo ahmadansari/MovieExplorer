@@ -14,6 +14,7 @@ import RxCocoa
 class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var datePickerView: DatePickerView!
     var viewModel: MoviesViewModel!
     
     private let disposeBag = DisposeBag()
@@ -37,6 +38,7 @@ class MoviesViewController: UIViewController {
                                                             action: #selector(onTapFilterButton))
         //Register Custom Cell
         MovieCell.register(forTableView: tableView)
+        datePickerView.delegate = self
     }
     
     func setupData() {
@@ -90,29 +92,6 @@ class MoviesViewController: UIViewController {
     }
 }
 
-extension MoviesViewController {
-    @objc func onTapFilterButton() {
-        print("Filter Tap")
-        
-        if isFiltering {
-            isFiltering = false
-            navigationItem.rightBarButtonItem?.title = "Filter"
-            let predicate = NSPredicate(value: true)
-            viewModel.moviesFRC.performFetch(withPredicate: predicate) { (_) in
-                self.reloadData()
-            }
-        } else {
-            isFiltering = true
-            navigationItem.rightBarButtonItem?.title = "Clear Filter"
-            
-            let predicate = NSPredicate(format: "releaseDate == %@", Date().stripTime() as NSDate)
-            viewModel.moviesFRC.performFetch(withPredicate: predicate) { (_) in
-                self.reloadData()
-            }
-        }
-    }
-}
-
 extension MoviesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -147,4 +126,64 @@ extension MoviesViewController: UITableViewDelegate {
         return false
     }
     
+}
+
+// MARK: - Date Picker & Filter
+extension MoviesViewController: DatePickerViewDelegate {
+    
+    @objc func onTapFilterButton() {
+        print("Filter Tap")
+        if isFiltering {
+            cancelFilter()
+        } else {
+            isFiltering = true
+            showDatePicker()
+        }
+    }
+    
+    func showDatePicker() {
+        datePickerView.isHidden = false
+        updateTitle()
+    }
+    
+    func hideDatePicker() {
+        datePickerView.isHidden = true
+        updateTitle()
+    }
+    
+    func updateTitle() {
+        if isFiltering {
+            navigationItem.rightBarButtonItem?.title = "Clear Filter"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "Filter"
+        }
+    }
+    
+    func cancelFilter() {
+        isFiltering = false
+        hideDatePicker()
+        let predicate = NSPredicate(value: true)
+        viewModel.moviesFRC.performFetch(withPredicate: predicate) { (_) in
+            self.reloadData()
+        }
+    }
+    
+    func filterMovies(forDate date: Date) {
+        isFiltering = true
+        if let dateString = date.stringValue(format: Constants.releaseDateFormat) {
+            let predicate = NSPredicate(format: "releaseDate == %@", dateString)
+            viewModel.moviesFRC.performFetch(withPredicate: predicate) { (_) in
+                self.reloadData()
+            }
+        }
+    }
+    
+    func datePickerDidCancel(_ sender: DatePickerView) {
+        cancelFilter()
+    }
+    
+    func datePicker(_ sender: DatePickerView, didSelect date: Date) {
+        hideDatePicker()
+        filterMovies(forDate: date)
+    }
 }

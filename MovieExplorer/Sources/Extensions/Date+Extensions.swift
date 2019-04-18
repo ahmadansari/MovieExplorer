@@ -19,4 +19,10 @@ extension Date {
         return date!
     }
     
+    func stringValue(format: String) -> String? {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
 }

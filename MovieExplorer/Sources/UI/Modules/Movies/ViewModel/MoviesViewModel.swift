@@ -13,7 +13,7 @@ import RxSwift
 typealias VoidBlock = () -> Void
 
 class MoviesViewModel {
- 
+    
     private var managedObjectContext: NSManagedObjectContext!
     var moviesFRC: RXFetchedResultsController!
     
@@ -49,8 +49,8 @@ class MoviesViewModel {
         managedObjectContext = CoreDataStack.defaultStack.mainContext
         let dateDescriptor = NSSortDescriptor(key: "cachedDate", ascending: true)
         moviesFRC = RXFetchedResultsController(context: managedObjectContext,
-                                                              entityName: Movie.entityName,
-                                                              sortDescriptors: [dateDescriptor])
+                                               entityName: Movie.entityName,
+                                               sortDescriptors: [dateDescriptor])
         moviesFRC.removeDelegate()
     }
 }
@@ -58,7 +58,7 @@ class MoviesViewModel {
 extension MoviesViewModel {
     func loadViewData(completion: @escaping VoidBlock) {
         showProgress.onNext(())
-        MovieHandler.shared.fetchGenreList { [weak self] (response, error) in
+        movieHandler?.fetchGenreList { [weak self] (response, error) in
             guard error == nil else {
                 completion()
                 return

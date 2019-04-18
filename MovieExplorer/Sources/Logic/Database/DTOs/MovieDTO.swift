@@ -25,12 +25,23 @@ class MovieDTO: NSObject {
         return self.movie?.overview
     }
     
-    func releaseDate() -> String {
-        if let date = self.movie?.releaseDate {
+    func releaseDate() -> String? {
+        return self.movie?.releaseDate
+    }
+    
+    func displayDate() -> String {
+        
+        //Date Type
+        let convertToDate: ((String?) -> Date?) = { dateString in
+            guard let dateString = dateString else { return nil }
             let formatter = DateFormatter()
             formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
-            formatter.dateFormat = Constants.dateDisplayFormat
-            return formatter.string(from: date as Date)
+            formatter.dateFormat = Constants.releaseDateFormat
+            return formatter.date(from: dateString)
+        }
+        
+        if let date = convertToDate(releaseDate()) {
+            return date.stringValue(format: Constants.dateDisplayFormat) ?? ""
         }
         return ""
     }
