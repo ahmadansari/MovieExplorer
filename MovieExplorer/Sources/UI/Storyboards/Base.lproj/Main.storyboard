@@ -28,7 +28,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-j7-vpX" customClass="DatePickerView" customModule="MovieExplorer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="862" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="902" width="414" height="260"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RF9-Sm-cfO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -77,7 +77,7 @@
                             <constraint firstItem="AXd-j7-vpX" firstAttribute="leading" secondItem="ht6-F5-7SR" secondAttribute="leading" id="NnJ-I4-EaK"/>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="trailing" secondItem="ht6-F5-7SR" secondAttribute="trailing" id="XYQ-jb-3O4"/>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="bottom" secondItem="ht6-F5-7SR" secondAttribute="bottom" id="php-Uz-LwE"/>
-                            <constraint firstItem="ht6-F5-7SR" firstAttribute="bottom" secondItem="AXd-j7-vpX" secondAttribute="bottom" constant="-260" id="wZN-2w-sYJ"/>
+                            <constraint firstItem="ht6-F5-7SR" firstAttribute="bottom" secondItem="AXd-j7-vpX" secondAttribute="bottom" constant="-300" id="wZN-2w-sYJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ht6-F5-7SR"/>
                     </view>
