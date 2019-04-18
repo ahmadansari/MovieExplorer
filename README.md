@@ -54,6 +54,11 @@ Code has been strucutred into three main categories, Sources, Resources and Supp
 - Resources contains Assets, Fonts, etc.
 - Supporting Files contain plist, and main file.
 
+### Code Coverage
+- Test cases for each module, logic and services are provided.
+- Code Coverage is upto 73%.
+- Find code coverage screenshot below. 
+
 ### Code Styling
 - SwiftLint is configured and run script is added on build time, so Swift code is automatically indented upon each build.
 
@@ -69,6 +74,7 @@ Code has been strucutred into three main categories, Sources, Resources and Supp
 ## Sample Screens
 [Movies]<img src="Screenshots/Movies.png" width="320" height="560">
 [Detail]<img src="Screenshots/Detail.png" width="320" height="560">
+![Code Coverage](Screenshots/CodeCoverage.png)
 
 * **See Application Video here:**  [AppPreview.mp4](Screenshots/AppPreview.mp4)
 
