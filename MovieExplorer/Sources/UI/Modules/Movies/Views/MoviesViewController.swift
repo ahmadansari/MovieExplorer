@@ -133,7 +133,7 @@ extension MoviesViewController: UITableViewDelegate {
 extension MoviesViewController: DatePickerViewDelegate {
     
     @objc func onTapFilterButton() {
-        print("Filter Tap")
+        SLog.debug("Filter Tap")
         if isFiltering {
             cancelFilter()
         } else {

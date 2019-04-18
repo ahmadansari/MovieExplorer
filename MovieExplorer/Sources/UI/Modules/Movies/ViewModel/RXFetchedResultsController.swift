@@ -56,7 +56,7 @@ class RXFetchedResultsController: NSObject, NSFetchedResultsControllerDelegate {
                 try self?.fetchedResultsController.performFetch()
                 completion?(nil)
             } catch {
-                print("Failed to initialize FetchedResultsController: \(error)")
+                SLog.error("Failed to initialize FetchedResultsController: \(error)")
                 completion?(error)
             }
         }
@@ -64,26 +64,26 @@ class RXFetchedResultsController: NSObject, NSFetchedResultsControllerDelegate {
     
     // MARK: NSFetchedResultsController Delegates
     internal func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("change start")
+        SLog.debug("change start")
         willChangeContent.onNext(())
     }
     
     internal func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        print("section change")
+        SLog.debug("section change")
         sectionChange.onNext(
             ["sectionIndex": sectionIndex, "type": type]
         )
     }
     
     internal func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        print("object change")
+        SLog.debug("object change")
         itemChange.onNext(
             ["indexPath": indexPath as Any, "type": type, "newIndexPath": newIndexPath as Any]
         )
     }
     
     internal func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("change end")
+        SLog.debug("change end")
         didChangeContent.onNext(())
     }
 }
@@ -100,21 +100,21 @@ extension RXFetchedResultsController {
     func subscribe(forTableView tableView: UITableView!) {
         //Load Contents
         self.loadContents.subscribe(onNext: { () in
-            print("RX: contents loaded")
+            SLog.debug("RX: contents loaded")
             tableView.reloadData()
         }).disposed(by: disposeBag)
         
         //Will Change Contents
         self.willChangeContent
             .subscribe(onNext: { () in
-                print("RX: will chnage content")
+                SLog.debug("RX: will chnage content")
                 tableView.beginUpdates()
             }).disposed(by: disposeBag)
         
         //Item Change
         self.itemChange
             .subscribe(onNext: { item in
-                print("RX: Item change")
+                SLog.debug("RX: Item change")
                 
                 let indexPath = item["indexPath"] as? IndexPath
                 let type = item["type"] as! NSFetchedResultsChangeType
@@ -137,7 +137,7 @@ extension RXFetchedResultsController {
         //Section Change
         self.sectionChange
             .subscribe(onNext: { item in
-                print("RX: Section Change")
+                SLog.debug("RX: Section Change")
                 let sectionIndex = item["sectionIndex"] as! Int
                 let type = item["type"] as! NSFetchedResultsChangeType
                 
@@ -171,7 +171,7 @@ extension RXFetchedResultsController {
     
     func numberOfRowsInSection(section: NSInteger) -> NSInteger {
         guard let sections = self.fetchedResultsController.sections else {
-            print("No sections in fetchedResultsController")
+            SLog.debug("No sections in fetchedResultsController")
             return 0
         }
         let sectionInfo = sections[section]

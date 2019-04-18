@@ -41,7 +41,7 @@ class CoreDataStack {
         }
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
+                SLog.error("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
@@ -65,10 +65,10 @@ class CoreDataStack {
             if (managedObjectContext.hasChanges) {
                 do {
                     try managedObjectContext.save()
-                    print("MOC Save Success")
+                    SLog.debug("MOC Save Success")
                     completion(nil)
                 } catch {
-                    print("MOC Save Error: \(error)")
+                    SLog.error("MOC Save Error: \(error)")
                     managedObjectContext.undo()
                     completion(error)
                 }
