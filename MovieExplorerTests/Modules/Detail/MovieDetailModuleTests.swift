@@ -32,7 +32,8 @@ class MovieDetailModuleTests: XCTestCase {
     
     /// Testing View Controller Init State
     func testViewController() {
-        
+       
+        //given
         let builder = self.builder
         let viewController = self.viewController
         
