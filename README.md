@@ -23,24 +23,54 @@ $ pod install
 - Navigate to project directory and open project using *MovieExplorer.xcworkspace*
 - Build and run the application on simulator or actual device running iOS 10.0 or later using Xcode 10.2
 
+
+## Features
+- Latest movies information.
+- Endless Scrolling (Pagination based on themoviedb.org api data)
+- Movie details (e.g. Poster, Rating, Language, Release Date, Overview)
+
 ## User Guidelines
+- Upon launching, app automatically fetches first page containing 20 movies.
+- Scrolling to bottom causes app to fetch next page and new movies are appended in the list automatically.
+- Tapping on Filter button will show a Date Picker, which can be used to filter movies on basis of release date.
+- After selecting the date and taping on Done button, will cause app to filter locally persisted data. All movies that matches the selected date will be displayed or else table will be empty.
+- Upon selecting any movie from the list will open movie detail page.
+- Movie detail page will show, movie poster, banner, name, rating, language, and overview.
+- Detail page hides poster in landscape mode. 
+
 
 ## Technical Notes
 
 ### Architecture
+- For Architecture purpose MVVM is used along with Builder and Coordinator.
+- Builder surves the modules construction prupose.
+- Coordinator is used for navigation.
+- RxSwift is used for binding mechanism. 
+- CoreData is used for persistence mechanism.
 
 ### Code Structure
 Code has been strucutred into three main categories, Sources, Resources and Supporting Files:
 - Sources contain all code files, views, extensions, business logic, etc.
-- Resources contains Assets, Fonts, Strings, etc.
+- Resources contains Assets, Fonts, etc.
 - Supporting Files contain plist, and main file.
 
 ### Code Styling
 - SwiftLint is configured and run script is added on build time, so Swift code is automatically indented upon each build.
 
 ### Third Party
+- RxSwift (For MVVM binding plus handling  `NSFetchedResultsController` callbacks)
+- Alamofire (For network calls, Service wrapper layer developed) 
+- SwiftyBeaver (For console logging)
+- SwiftLint (For autmatic code indentation)
+- Kingfisher (For downloading and caching images)
+- KRProgressHUD (For displaying progress)
+
 
 ## Sample Screens
+![Movies](Screenshots/Movies.png)
+![Detail](Screenshots/Detail.png)
+
+See Application Video here:  [AppPreview.mp4](Screenshots/AppPreview.mp4)
 
 
 ## Built With
