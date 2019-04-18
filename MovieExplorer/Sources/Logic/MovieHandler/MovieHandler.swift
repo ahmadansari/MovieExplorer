@@ -18,8 +18,9 @@ class MovieHandler {
         
     }
     
-    func fetchLatestMovies(_ page: Int, _ completionHandler: @escaping (MovieServiceResponse?, Error?) -> Void) {
-        let service = MovieService()
+    func fetchLatestMovies(page: Int,
+                           service: MovieServiceProtocol = MovieService(),
+                           completionHandler: @escaping (MovieServiceResponse?, Error?) -> Void) {
         service.latestMovies(page: page) { (response, error) in
             if error != nil {
                 completionHandler(nil, error)
@@ -36,9 +37,9 @@ class MovieHandler {
         }
     }
     
-    func fetchGenreList(completionHandler: @escaping (GenreServiceResponse?, Error?) -> Void) {
-        let genreService = GenreService()
-        genreService.genreList { (response, error) in
+    func fetchGenreList(service: GenreServiceProtocol = GenreService(),
+                        completionHandler: @escaping (GenreServiceResponse?, Error?) -> Void) {
+        service.genreList { (response, error) in
             if error != nil {
                 completionHandler(nil, error)
             } else {
