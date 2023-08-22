@@ -10,17 +10,16 @@ import Foundation
 import UIKit
 
 class MoviesModuleCoordinator {
-    let navigationController: UINavigationController?
-    
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
-    }
+  let navigationController: UINavigationController?
+
+  init(navigationController: UINavigationController?) {
+    self.navigationController = navigationController
+  }
 }
 
 extension MoviesModuleCoordinator {
-    
-    func showMovieDetail(movieDTO: MovieDTO) {
-        let detailController = MovieDetailModuleBuilder().build(movieDTO: movieDTO)
-        navigationController?.pushViewController(detailController, animated: true)
-    }
+  func showMovieDetail(movieDTO: MovieDTO) {
+    let detailController = MovieDetailModuleBuilder().build(movieDTO: movieDTO)
+    navigationController?.pushViewController(detailController, animated: true)
+  }
 }

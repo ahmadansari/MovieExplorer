@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 class MoviesModuleBuilder {
+  
+  func build() -> UIViewController {
     
-    func build() -> UIViewController {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
-        
-        let navigationController = UINavigationController(rootViewController: viewController)
-        
-        let coordinator = MoviesModuleCoordinator(navigationController: navigationController)
-        let viewModel = MoviesViewModel(coordinator: coordinator, handler: MovieHandler.shared)
-        
-        viewController.viewModel = viewModel
-        
-        return navigationController
-    }
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let viewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
+    
+    let navigationController = UINavigationController(rootViewController: viewController)
+    
+    let coordinator = MoviesModuleCoordinator(navigationController: navigationController)
+    let viewModel = MoviesViewModel(coordinator: coordinator, handler: MovieHandler.shared)
+    
+    viewController.viewModel = viewModel
+    
+    return navigationController
+  }
 }

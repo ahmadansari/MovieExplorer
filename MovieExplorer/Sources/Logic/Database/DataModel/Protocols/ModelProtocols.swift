@@ -8,7 +8,7 @@
 
 import Foundation
 
-//DTO Protcol
+// DTO Protcol
 protocol DataTransferProtocol {
-    func dataTransferObject() -> Any?
+  func dataTransferObject() -> Any?
 }

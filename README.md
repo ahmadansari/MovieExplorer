@@ -21,7 +21,7 @@ See [Getting Started on CocoaPods](https://guides.cocoapods.org/using/getting-st
 $ pod install
 ```
 - Navigate to project directory and open project using *MovieExplorer.xcworkspace*
-- Build and run the application on simulator or actual device running iOS 10.0 or later using Xcode 10.2
+- Build and run the application on simulator or actual device running iOS 14.0 or later using Xcode 14.1
 
 
 ## Features

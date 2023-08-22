@@ -11,24 +11,24 @@ import UIKit
 import Kingfisher
 
 class MovieCell: UITableViewCell {
-    static let cellIdentifier = "movieCell"
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var posterView: UIImageView!
-    
-    class func register(forTableView tableView: UITableView?) {
-        guard tableView != nil else { return }
-        tableView?.register(UINib.init(nibName: "MovieCell", bundle: Bundle.main), forCellReuseIdentifier: MovieCell.cellIdentifier)
-    }
-    
-    func configure(movieDTO: MovieDTO) {
-        titleLabel?.text = movieDTO.movieTitle()
-        descriptionLabel.text = movieDTO.movieOverview()
-        releaseDateLabel.text = movieDTO.displayDate()
-        titleLabel.sizeToFit()
-        descriptionLabel.sizeToFit()        
-        posterView.kf.setImage(with: movieDTO.posterURL(), placeholder: UIImage.placeholderImage)
-    }
+  static let cellIdentifier = "movieCell"
+  
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var releaseDateLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var posterView: UIImageView!
+  
+  class func register(forTableView tableView: UITableView?) {
+    guard tableView != nil else { return }
+    tableView?.register(UINib.init(nibName: "MovieCell", bundle: Bundle.main), forCellReuseIdentifier: MovieCell.cellIdentifier)
+  }
+  
+  func configure(movieDTO: MovieDTO) {
+    titleLabel?.text = movieDTO.movieTitle()
+    descriptionLabel.text = movieDTO.movieOverview()
+    releaseDateLabel.text = movieDTO.displayDate()
+    titleLabel.sizeToFit()
+    descriptionLabel.sizeToFit()        
+    posterView.kf.setImage(with: movieDTO.posterURL(), placeholder: UIImage.placeholderImage)
+  }
 }

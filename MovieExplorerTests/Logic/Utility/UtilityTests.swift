@@ -12,18 +12,18 @@ import XCTest
 import MovieExplorer
 
 class UtilityTestCases: XCTestCase {
-    
-    func testLogger() {
-        // given
-        let utility = Utility.defaultUtility
-        
-        // when
-        utility.configureSwiftLogger()
-        
-        // then
-        XCTAssertNotNil(SLog.debug(""))
-        XCTAssertNotNil(SLog.error(""))
-        XCTAssertNotNil(SLog.info(""))
-        XCTAssertNotNil(SLog.warning(""))
-    }
+
+  func testLogger() {
+    // given
+    let utility = Utility.defaultUtility
+
+    // when
+    utility.configureSwiftLogger()
+
+    // then
+    XCTAssertNotNil(SLog.debug(""))
+    XCTAssertNotNil(SLog.error(""))
+    XCTAssertNotNil(SLog.info(""))
+    XCTAssertNotNil(SLog.warning(""))
+  }
 }

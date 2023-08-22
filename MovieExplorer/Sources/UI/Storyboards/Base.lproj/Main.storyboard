@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="haW-54-1OT">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="haW-54-1OT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOM-20-gqw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -46,11 +44,8 @@
                                             </barButtonItem>
                                         </items>
                                     </toolbar>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VHJ-5T-X1F">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="VHJ-5T-X1F">
                                         <rect key="frame" x="0.0" y="44" width="414" height="216"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="577270783.68845105">
-                                            <!--2019-04-18 08:59:43 +0000-->
-                                        </date>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,6 +64,7 @@
                                 </connections>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ht6-F5-7SR"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JOM-20-gqw" firstAttribute="top" secondItem="ht6-F5-7SR" secondAttribute="top" id="07T-HJ-nWr"/>
@@ -79,7 +75,6 @@
                             <constraint firstItem="JOM-20-gqw" firstAttribute="bottom" secondItem="ht6-F5-7SR" secondAttribute="bottom" id="php-Uz-LwE"/>
                             <constraint firstItem="ht6-F5-7SR" firstAttribute="bottom" secondItem="AXd-j7-vpX" secondAttribute="bottom" constant="-300" id="wZN-2w-sYJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ht6-F5-7SR"/>
                     </view>
                     <navigationItem key="navigationItem" id="YxX-p2-CXP"/>
                     <connections>
@@ -101,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="lsV-BZ-so0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="211"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="211"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="rYi-Pj-ftJ"/>
                                 </constraints>
@@ -110,7 +105,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZt-t6-FsY" userLabel="Poster View">
-                                <rect key="frame" x="0.0" y="255" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="259" width="414" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 November 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u53-D0-eiL">
                                         <rect key="frame" x="110" y="93" width="292" height="17"/>
@@ -209,7 +204,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOj-Q1-zK2">
-                                <rect key="frame" x="0.0" y="405" width="414" height="457"/>
+                                <rect key="frame" x="0.0" y="409" width="414" height="453"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zY-Bg-Hl6" userLabel="Seperator">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -219,7 +214,7 @@
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dI-m8-dih">
-                                        <rect key="frame" x="8" y="9" width="398" height="440"/>
+                                        <rect key="frame" x="8" y="9" width="398" height="436"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -239,6 +234,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JCe-pP-dn9"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nOj-Q1-zK2" firstAttribute="trailing" secondItem="JCe-pP-dn9" secondAttribute="trailing" id="Bg4-Kn-3Ge"/>
@@ -252,7 +248,6 @@
                             <constraint firstItem="rZt-t6-FsY" firstAttribute="trailing" secondItem="JCe-pP-dn9" secondAttribute="trailing" id="xHs-ng-cGi"/>
                             <constraint firstItem="nOj-Q1-zK2" firstAttribute="top" secondItem="rZt-t6-FsY" secondAttribute="bottom" id="yjs-1j-32C"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JCe-pP-dn9"/>
                     </view>
                     <connections>
                         <outlet property="backdropHeightConstraint" destination="rYi-Pj-ftJ" id="T3S-gU-yfo"/>

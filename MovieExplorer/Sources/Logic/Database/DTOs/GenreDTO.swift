@@ -9,18 +9,18 @@
 import Foundation
 
 class GenreDTO: NSObject {
-    
-    weak var genre: Genre?
-    
-    init(genre: Genre) {
-        super.init()
-        self.genre = genre
+
+  weak var genre: Genre?
+
+  init(genre: Genre) {
+    super.init()
+    self.genre = genre
+  }
+
+  func genreName() -> String {
+    if let name = self.genre?.name {
+      return name
     }
-    
-    func genreName() -> String {
-        if let name = self.genre?.name {
-            return name
-        }
-        return ""
-    }
+    return ""
+  }
 }

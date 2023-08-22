@@ -10,26 +10,26 @@ import Foundation
 import UIKit
 import SwiftyBeaver
 
-//Swift Logger
+// Swift Logger
 let SLog = SwiftyBeaver.self
 
 class Utility: NSObject {
-    
-    // Make init private for singleton
-    private override init() {
-    }
-    
-    // MARK: Default Context
-    static let defaultUtility = Utility()
-    
-    func configureSwiftLogger() {
-        // add console log destinations
-        let console = ConsoleDestination()  // log to Xcode Console
-        
-        // log format : console output to short time, log level & message
-        console.format = Constants.loggerFormat
-        
-        // add the destinations to SwiftyBeaver
-        SLog.addDestination(console)
-    }
+
+  // Make init private for singleton
+  private override init() {
+  }
+
+  // MARK: Default Context
+  static let defaultUtility = Utility()
+
+  func configureSwiftLogger() {
+    // add console log destinations
+    let console = ConsoleDestination()  // log to Xcode Console
+
+    // log format : console output to short time, log level & message
+    console.format = Constants.loggerFormat
+
+    // add the destinations to SwiftyBeaver
+    SLog.addDestination(console)
+  }
 }

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    
-    public static var placeholderImage: UIImage? {
-        return UIImage(named: "movie-placeholder")
-    }
+  
+  public static var placeholderImage: UIImage? {
+    return UIImage(named: "movie-placeholder")
+  }
 }
