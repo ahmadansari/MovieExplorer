@@ -18,7 +18,7 @@ class MovieDetailModuleTests: XCTestCase {
   override func setUp() {
     super.setUp()
 
-    movieDTO = Movie.movie(withId: 287947, context: CoreDataStack.defaultStack.mainContext)?.movieDTO
+    movieDTO = Movie.movie(withId: 976573, context: CoreDataStack.defaultStack.mainContext)?.movieDTO
     builder = MovieDetailModuleBuilder()
     viewController = builder.build(movieDTO: movieDTO) as? MovieDetailViewController
   }
